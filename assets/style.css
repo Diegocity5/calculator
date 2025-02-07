@@ -4,8 +4,9 @@
     box-sizing: border-box;
 }
 :root {
-    --primary-1: black;
+    --primary-1: rgba(15, 15, 15, 0.968);
     --secondary-2: white;
+    --theme-secondary-color: rgb(113, 234, 98);
     --size-desktop: 2.8rem;
 }
 body {
@@ -13,6 +14,9 @@ body {
     background-color: #ddd;
 }
 #calc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     margin: 0 auto;
     background-color: var(--primary-1);
     width: 100%;
@@ -26,12 +30,11 @@ h1  {
     color: var(--secondary-2);
     font-size: 2rem;
     text-align: center;
-    margin-bottom: 10px;
 }
 #calc-result {
     width: 85%;
     height: 60px;
-    background-color: rgb(162, 240, 152);
+    background-color: var(--theme-secondary-color);
     margin: 0 auto;
     border-radius: 5px;
     font-size: var(--size-desktop);
@@ -39,4 +42,41 @@ h1  {
     justify-content: flex-end;
     text-shadow: 0.8px 0.8px 2px black;
     padding-right: 6px;
+}
+#keyboard-container {
+    display: flex;
+    height: 60%;
+}
+#keyboard-numbers, #keyboard-operators {
+    display: grid;
+}
+#keyboard-numbers {
+    width: 70%;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.key-number {
+    border-radius: 3px;
+    font-size: 3rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    justify-self: center;
+    color: var(--secondary-2);
+}
+.key-number:hover {
+    transition: color 500ms ease-out;
+    color:var(--theme-secondary-color);
+    outline: 0.1px solid #ddd;
+}
+a.key-number:nth-child(11){
+    grid-column: span 2;
+    color: orangered;
+}
+#keyboard-operators {
+    width: calc(100% - 75%);
+    grid-row-gap: 8px;
+}
+.key-operator {
+    font-size: 2rem;
 }
