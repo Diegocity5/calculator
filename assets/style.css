@@ -11,6 +11,7 @@
     --btn-hover-color: orangered;
     --btn-fontsize-keyboard: 2rem;
     --display-fontsize: 2.8rem;
+    --m-top-calc-container: 1%;
 }
 body {
     font-size: 62.5%;
@@ -26,7 +27,7 @@ body {
     width: 100%;
     max-width: 350px;
     height: 550px;
-    margin-top: 50px;
+    margin-top: var(--m-top-calc-container);
     border-radius: 20px;
     padding: 10px 1%;
 }
@@ -93,4 +94,19 @@ button.key-number:nth-child(11){
     outline: 0.1px solid #ddd;
     font-size: 2.1rem;
     cursor: pointer;
+}
+/*Breaktpoint: large*/
+@media (min-width: 968px) {
+    :root {
+        --m-top-calc-container: 3%;
+    }
+}
+/*Breaktpoint: extra-large*/
+@media (min-width: 1361px) {
+    :root {
+        --m-top-calc-container: 5%;
+    }
+    body {
+        background-color: rgb(52, 90, 90);
+    }
 }
